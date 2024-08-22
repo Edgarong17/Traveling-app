@@ -1,0 +1,77 @@
+<ion-header>
+  <link href="https://fonts.googleapis.com/css?family=Viaje" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=title" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Description" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Viaje" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Ciudad" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Description" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Hotel" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Comida" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Actividades" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Distancia" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Volver" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Costo Por Noche" rel="stylesheet">
+  <ion-toolbar>
+    <ion-title>{{pag}}</ion-title>
+  </ion-toolbar>
+  <ion-searchbar debounce="500" (ionChange)="handleChange($event)" animated="true" placeholder="Elige tu plan de viaje"></ion-searchbar>
+</ion-header>
+<style>
+  ion-content{
+    --ion-background-color: #FFFFFF;
+  }
+</style>
+<ion-content>
+  <ion-content [fullscreen]="true">
+    <ion-list>
+      <ion-item *ngFor="let product of filteredProducts">
+        <ion-card>
+          <ion-img [src]="product.images[0]"></ion-img>
+          <ion-card-header>
+            <ion-card-title> {{ product.Ciudad }}</ion-card-title>
+            <ion-card-subtitle>{{ product.Description }}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+           <ion-list>
+            <h2>Costo Por Noche</h2>
+            <ion-item>
+              <ion-grid>
+                <ion-row>
+                  <ion-col>
+                    <ion-label>Hotel: $ {{ product.Hotel }}</ion-label>
+                  </ion-col>
+                  <ion-col>
+                    <ion-label>Comida: $ {{ product.Comida }} </ion-label>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-item>
+            <ion-item>
+              <ion-grid>
+                <ion-row>
+                  <ion-col>
+                    <ion-label>Costo de Ida y Vuelta: $ {{ product.Viaje }}</ion-label>
+                  </ion-col>
+                  <ion-col>
+                    <ion-label>Recreación: $ {{ product.Actividades }}</ion-label>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-item>
+            <ion-item>
+              <ion-grid>
+                <ion-row>
+                  <ion-col>
+                    <ion-label>Distancia Recorrida: {{ product.Distancia }}</ion-label>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
+        <ion-button (click)="Viaje(product.id);" expand="block">Viaje</ion-button>
+      </ion-card>
+    </ion-item>
+  </ion-list>
+</ion-content>
+</ion-content>

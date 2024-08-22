@@ -1,0 +1,99 @@
+<ion-header [translucent]="true">
+  <link href="https://fonts.googleapis.com/css?family=Viaje" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=title" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Description" rel="stylesheet">
+  <ion-toolbar>
+    <ion-title>Costo del Viaje</ion-title>
+  </ion-toolbar>
+</ion-header>
+<style>
+  ion-content{
+    --ion-background-color: ;
+  }
+</style>
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{Ciudad}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+     <ion-list>
+      <h2>Costo</h2>
+      <ion-item>
+        <capacitor-google-map id="map"></capacitor-google-map>
+      </ion-item>
+      <ion-item>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-input label="Number de Personas:" type="number" placeholder="1" [(ngModel)]="personas" (ionChange)="handleChange($event)"></ion-input>
+            </ion-col>
+            <ion-col>
+             <ion-input label="Number de Noches:" type="number" placeholder="1" [(ngModel)]="dias" (ionChange)="handleChange($event)"></ion-input>
+           </ion-col>
+         </ion-row>
+       </ion-grid>
+     </ion-item>
+     <ion-item>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-label>Hotel: $ {{ Hotel }}</ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-label>Comida: $ {{ Comida }} </ion-label>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+    <ion-item>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-label>Costo de Ida y Vuelta: $ {{ Viaje }}</ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-label>Recreación: $ {{ Actividades }}</ion-label>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+    <ion-item>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-label>Comida: $ {{ Comida }} </ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-label>Costo Total: $ {{ costototal }}</ion-label>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+    <h2>Financiamiento</h2>
+    <ion-item>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-input label="Meses para ahorrar:" type="number" placeholder="1" [(ngModel)]="meses" (ionChange)="handleChange($event)"></ion-input>
+          </ion-col>
+          <ion-col>
+           <ion-input label="Capital Inicial:" type="number" placeholder="0" [(ngModel)]="cap" (ionChange)="handleChange($event)"></ion-input>
+         </ion-col>
+       </ion-row>
+     </ion-grid>
+   </ion-item>
+   <ion-item>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-label>Ahorrar cada mes: $ {{ ahorrar }}</ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
+</ion-list>
+</ion-card-content>
+</ion-card>
+<ion-button (click)="not()" expand="block">Viaje</ion-button>
+</ion-content>
